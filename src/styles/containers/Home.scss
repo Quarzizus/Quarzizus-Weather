@@ -1,0 +1,8 @@
+.Home {
+  height: calc(100vh - 100px);
+  display: grid;
+  padding: 30px;
+  grid-template-columns: repeat(6, minmax(180px, 200px));
+  grid-template-rows: 80px repeat(5, 1fr);
+  font-family: "PT Sans", sans-serif;
+}

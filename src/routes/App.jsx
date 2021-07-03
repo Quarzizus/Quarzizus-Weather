@@ -1,11 +1,12 @@
 import React from "react";
-import Card from "../components/Card";
+import Home from "../containers/Home";
+import "../styles/App.scss";
 
 const App = () => {
   return (
-    <div>
-      <Card />
-    </div>
+    <>
+      <Home />
+    </>
   );
 };
 

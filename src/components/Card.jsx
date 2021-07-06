@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import useFetchData from "../hooks/useFetchData";
+import Spinner from "../components/Spinner";
 import { Icons } from "../context/IconList";
 import "../styles/components/Card.scss";
 import AppContext from "../context/AppContext";
@@ -8,9 +9,24 @@ const Card = () => {
   const { city } = useContext(AppContext);
   const [data, setData] = useFetchData("weather", city);
 
+  // Loading
   if (!Object.keys(data).length) {
-    return <h1>Cargando...</h1>;
-  } else {
+    return (
+      <div className="Card">
+        <Spinner />
+      </div>
+    );
+  }
+  // Error
+  else if (!data.weather) {
+    return (
+      <div className="Card">
+        <h2>I'm Sorry :c</h2>
+      </div>
+    );
+  }
+  // Success
+  else {
     const codeIcon = data.weather[0].icon;
     const dataValues = {
       name: data.name,
@@ -24,14 +40,13 @@ const Card = () => {
     };
     return (
       <article className="Card">
-        {console.log(city)}
         <header className="Card_header">
-          <h2>{dataValues.name}</h2>
+          <h2>{dataValues.name || "Nothing"} </h2>
         </header>
         <section className="Card_main">
-          <p className="Card_temperature">{dataValues.temperature}°</p>
+          <p className="Card_temperature">{dataValues.temperature || "0"}°</p>
           <div className="Card_description">
-            <img className="Icon" src={dataValues.url} />
+            <img className="Icon" src={dataValues.url || Icons["01d"]} />
             <p>{dataValues.description}</p>
           </div>
         </section>
@@ -39,17 +54,17 @@ const Card = () => {
           <section>
             <h3>Pressure</h3>
             <img src={Icons.pressure} />
-            <p>{dataValues.pressure}Pa</p>
+            <p>{dataValues.pressure || 0}Pa</p>
           </section>
           <section>
             <h3>Humidity</h3>
             <img src={Icons.humedity} />
-            <p>{dataValues.humidity}%</p>
+            <p>{dataValues.humidity || 0}%</p>
           </section>
           <section>
             <h3>Speed Wind</h3>
             <img src={Icons.wind} />
-            <p>{dataValues.wind}m/s</p>
+            <p>{dataValues.wind || 0}m/s</p>
           </section>
         </footer>
       </article>

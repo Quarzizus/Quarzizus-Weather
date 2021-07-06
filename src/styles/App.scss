@@ -7,5 +7,9 @@
 }
 
 body {
-  background-color: white;
+  background: linear-gradient(
+    to bottom,
+    rgb(224, 215, 215),
+    rgba(130, 219, 235, 0.349)
+  );
 }

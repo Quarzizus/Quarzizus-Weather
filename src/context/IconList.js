@@ -1,15 +1,15 @@
-import clearSky from "../Iconos/01d.svg";
-import fewClouds from "../Iconos/02d.svg";
-import scatteredClouds from "../Iconos/03d.svg";
-import brokenClouds from "../Iconos/04d.svg";
-import showerRain from "../Iconos/09d.svg";
-import rain from "../Iconos/10d.svg";
-import thunderstorm from "../Iconos/11d.svg";
-import show from "../Iconos/13d.svg";
-import mist from "../Iconos/50d.svg";
-import humedad from "../Iconos/Info/humedad.svg";
-import presion from "../Iconos/Info/presion.svg";
-import viento from "../Iconos/Info/viento.svg";
+import clearSky from "../icons/01d.svg";
+import fewClouds from "../icons/02d.svg";
+import scatteredClouds from "../icons/03d.svg";
+import brokenClouds from "../icons/04d.svg";
+import showerRain from "../icons/09d.svg";
+import rain from "../icons/10d.svg";
+import thunderstorm from "../icons/11d.svg";
+import show from "../icons/13d.svg";
+import mist from "../icons/50d.svg";
+import humedad from "../icons/Info/humedad.svg";
+import presion from "../icons/Info/presion.svg";
+import viento from "../icons/Info/viento.svg";
 
 export const Icons = {
   "01d": clearSky,

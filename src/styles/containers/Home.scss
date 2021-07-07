@@ -16,3 +16,15 @@
     color: #00a2ff3d;
   }
 }
+
+@media screen and (max-width: 540px) {
+  .Home {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px repeat(14, 100px) 80px;
+    height: auto;
+    h1 {
+      grid-column: 1/2;
+      padding: 0;
+    }
+  }
+}

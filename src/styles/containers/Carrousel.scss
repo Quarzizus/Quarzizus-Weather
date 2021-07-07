@@ -5,3 +5,11 @@
   align-items: center;
   justify-content: space-around;
 }
+
+@media screen and (max-width: 540px) {
+  .Carrousel {
+    grid-column: 1/2;
+    grid-row: 6/15;
+    flex-direction: column;
+  }
+}

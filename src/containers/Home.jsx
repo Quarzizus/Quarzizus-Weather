@@ -8,11 +8,11 @@ import "../styles/containers/Home.scss";
 const Home = () => {
   return (
     <main className="Home">
-      <h1>Quarzizus Weather</h1>
+      {/* <h1>Quarzizus Weather</h1> */}
       <Card />
-      <Search />
       <Carrousel />
-      <Footer />
+      {/*
+      <Footer /> */}
     </main>
   );
 };

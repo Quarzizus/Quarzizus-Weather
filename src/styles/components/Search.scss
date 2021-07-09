@@ -1,45 +1,69 @@
 .Search {
-  grid-column: 3/7;
-  grid-row: 2/3;
-  display: flex;
-  padding: 0 25px;
-  justify-content: space-between;
-  align-items: center;
-  height: 50%;
-  .Search_input {
-    width: 90%;
-    border-radius: 15px;
-    padding: 10px 30px;
+  background-color: rgb(35, 35, 70);
+  position: absolute;
+  left: 400px;
+  width: 0;
+  padding: 0;
+  height: 75px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  overflow: hidden;
+  transition: 1s all ease;
+  .Search_close {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    justify-self: end;
+    grid-row: 1/2;
+    font-weight: bold;
+    color: white;
     border: none;
-    background: rgba(255, 255, 255, 0.26);
-    font-family: "PT Sans", sans-serif;
-    color: black;
   }
-  .Search_input:focus-visible {
-    outline: 2px solid #00a2ff3d;
-  }
-  .Search_button {
+  .Seach_container {
+    grid-row: 2/3;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding: 10px 12px;
-    border-radius: 15px;
-    border: none;
-    background: rgba(255, 255, 255, 0.26);
-    cursor: pointer;
-    img {
-      width: 14px;
+    .Search_input {
+      padding: 0;
+      width: 0;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+    .Search_input::placeholder {
+      color: white;
+    }
+    .Search_input:focus-visible {
+      outline: 1px solid white;
+    }
+    .Search_button {
+      width: 0;
+      height: 100%;
+      cursor: pointer;
+      border: none;
+      background: linear-gradient(to top, rgb(49, 0, 128), rgb(66, 0, 128));
+      color: white;
+      font-family: "PT Sans", sans-serif;
+      font-weight: bold;
     }
   }
 }
 
-@media screen and (max-width: 540px) {
-  .Search {
-    grid-column: 1/2;
-    padding: 0;
-    grid-row: 2/3;
+.Active {
+  left: 0;
+  width: 400px;
+  padding: 0 25px;
+
+  .Seach_container {
     .Search_input {
       width: 80%;
+      padding: 0 10px;
+    }
+    .Search_button {
+      width: 18%;
     }
   }
 }

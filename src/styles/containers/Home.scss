@@ -1,12 +1,11 @@
 .Home {
-  height: calc(100vh);
+  height: 100vh;
+  max-width: 1440px;
   display: grid;
-  padding: 30px;
-  grid-template-columns: repeat(6, minmax(180px, 200px));
-  grid-template-rows: 80px repeat(5, 1fr) 100px;
-  place-content: center;
-  gap: 15px;
+  grid-template-columns: 400px 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   font-family: "PT Sans", sans-serif;
+  background-color: rgb(9, 9, 19);
 
   h1 {
     grid-column: 1/3;
@@ -14,17 +13,5 @@
     align-self: center;
     padding: 0 0 0 25px;
     color: #00a2ff3d;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .Home {
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px repeat(14, 100px) 80px;
-    height: auto;
-    h1 {
-      grid-column: 1/2;
-      padding: 0;
-    }
   }
 }

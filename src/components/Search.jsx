@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import AppContext from "../context/AppContext";
-import lupaIcon from "../icons/Info/lupa.svg";
 import "../styles/components/Search.scss";
 
-const Search = () => {
+const Search = ({ searchHandle }) => {
   const { handleCity } = useContext(AppContext);
   const [cityValue, setCityValue] = useState(null);
   const handleChange = (e) => {
@@ -14,21 +13,26 @@ const Search = () => {
   };
   return (
     <section className="Search">
-      <input
-        type="search"
-        placeholder="Medellin"
-        name="city"
-        className="Search_input"
-        onChange={handleChange}
-        onKeyPress={handleEnter}
-      />
-      <button
-        type="button"
-        className="Search_button"
-        onClick={() => handleCity(cityValue)}
-      >
-        <img src={lupaIcon} alt="search" />
+      <button className="Search_close" onClick={searchHandle}>
+        X
       </button>
+      <section className="Seach_container">
+        <input
+          type="search"
+          placeholder="Search Location"
+          name="city"
+          className="Search_input"
+          onChange={handleChange}
+          onKeyPress={handleEnter}
+        />
+        <button
+          type="button"
+          className="Search_button"
+          onClick={() => handleCity(cityValue)}
+        >
+          Search
+        </button>
+      </section>
     </section>
   );
 };

@@ -1,13 +1,21 @@
 import React, { useContext } from "react";
 import useFetchData from "../hooks/useFetchData";
+import useDateFormated from "../hooks/useDateFormated";
+import AppContext from "../context/AppContext";
 import Spinner from "../components/Spinner";
+import Search from "./Search";
+import Cloud from "../icons/Info/cloud.svg";
 import { Icons } from "../context/IconList";
 import "../styles/components/Card.scss";
-import AppContext from "../context/AppContext";
 
 const Card = () => {
-  const { city } = useContext(AppContext);
+  const { city, grades } = useContext(AppContext);
   const [data, setData] = useFetchData("weather", city);
+  const { dayWeek, month, dayMonth } = useDateFormated();
+  const searchHandle = () => {
+    const search = document.querySelector(".Search");
+    search.classList.toggle("Active");
+  };
 
   // Loading
   if (!Object.keys(data).length) {
@@ -27,45 +35,56 @@ const Card = () => {
   }
   // Success
   else {
-    const codeIcon = data.weather[0].icon;
+    const codeIcon = data.weather[0].icon.slice(0, 2);
     const dataValues = {
       name: data.name,
       url: Icons[codeIcon],
-      temperature: Math.floor(data.main.temp - 273.15),
+      c: Math.floor(data.main.temp - 273.15),
+      f: Math.floor(data.main.temp),
       description: data.weather[0].description,
-      // Info
-      pressure: data.main.pressure,
-      wind: data.wind.speed,
-      humidity: data.main.humidity,
     };
     return (
       <article className="Card">
+        <Search searchHandle={searchHandle} />
         <header className="Card_header">
-          <h2>{dataValues.name || "Nothing"} </h2>
+          <button type="button" className="Header_type-search">
+            Search for places
+          </button>
+          <button
+            type="button"
+            className="Header_icon-search"
+            onClick={searchHandle}
+          >
+            <i className="far fa-compass"></i>
+          </button>
         </header>
+        <picture>
+          <img src={Cloud} className="Cloud-1" alt="" />
+          <img src={Cloud} className="Cloud-2" alt="" />
+          <img src={Cloud} className="Cloud-3" alt="" />
+          <img src={Cloud} className="Cloud-4" alt="" />
+          <img className="Icon" src={dataValues.url} />
+        </picture>
         <section className="Card_main">
-          <p className="Card_temperature">{dataValues.temperature || "0"}°</p>
-          <div className="Card_description">
-            <img className="Icon" src={dataValues.url || Icons["01d"]} />
-            <p>{dataValues.description}</p>
-          </div>
+          {!grades ? (
+            <p className="Card_temperature">
+              <span>{dataValues.c}</span>°C
+            </p>
+          ) : (
+            <p className="Card_temperature">
+              <span>{dataValues.f}</span>°F
+            </p>
+          )}
+          <p className="Card_description">{dataValues.description}</p>
         </section>
         <footer className="Card_info">
-          <section>
-            <h3>Pressure</h3>
-            <img src={Icons.pressure} />
-            <p>{dataValues.pressure || 0}Pa</p>
-          </section>
-          <section>
-            <h3>Humidity</h3>
-            <img src={Icons.humedity} />
-            <p>{dataValues.humidity || 0}%</p>
-          </section>
-          <section>
-            <h3>Speed Wind</h3>
-            <img src={Icons.wind} />
-            <p>{dataValues.wind || 0}m/s</p>
-          </section>
+          <p>
+            Today ~ {dayWeek}, {dayMonth} {month}
+          </p>
+          <h2>
+            <i className="fas fa-map-marker-alt"></i>
+            {dataValues.name}
+          </h2>
         </footer>
       </article>
     );

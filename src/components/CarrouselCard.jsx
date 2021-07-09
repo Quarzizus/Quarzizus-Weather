@@ -18,7 +18,7 @@ const CarrouselCard = ({ dataCard }) => {
   const date = new Date(dataCard.dt_txt);
   const numberDay = date.getDay();
 
-  const dataValues = {
+  const card = {
     name: week[numberDay],
     url: Icons[codeIcon],
     description: dataCard.weather[0].main,
@@ -27,11 +27,11 @@ const CarrouselCard = ({ dataCard }) => {
   };
   return (
     <article className="CarrouselCard">
-      <h4>{dataValues.name}</h4>
-      <img src={dataValues.url} />
+      <h4>{card.name}</h4>
+      <img src={card.url} />
       <div className="CarrouselCard_temperature">
-        <p>{!grades ? `${dataValues.c}°C` : `${dataValues.f}°F`}</p>
-        <p>{dataValues.description}</p>
+        <p>{!grades ? `${card.c}°C` : `${card.f}°F`}</p>
+        <p>{card.description}</p>
       </div>
     </article>
   );

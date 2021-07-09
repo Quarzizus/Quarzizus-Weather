@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import useFetchData from "../hooks/useFetchData";
 import useDateFormated from "../hooks/useDateFormated";
 import AppContext from "../context/AppContext";
@@ -9,14 +9,15 @@ import { Icons } from "../context/IconList";
 import "../styles/components/Card.scss";
 
 const Card = () => {
-  const { city, grades } = useContext(AppContext);
+  const { city, grades, setWidget, widget } = useContext(AppContext);
   const [data, setData] = useFetchData("weather", city);
   const { dayWeek, month, dayMonth } = useDateFormated();
   const searchHandle = () => {
     const search = document.querySelector(".Search");
+    const input = document.querySelector(".Search_input");
+    input.focus();
     search.classList.toggle("Active");
   };
-
   // Loading
   if (!Object.keys(data).length) {
     return (
@@ -28,9 +29,21 @@ const Card = () => {
   // Error
   else if (!data.weather) {
     return (
-      <div className="Card">
-        <h2>I'm Sorry :c</h2>
-      </div>
+      <article className="Card">
+        <Search searchHandle={searchHandle} />
+        <header className="Card_header">
+          <button type="button" className="Header_type-search">
+            Search for places
+          </button>
+          <button
+            type="button"
+            className="Header_icon-search"
+            onClick={searchHandle}
+          >
+            <i className="far fa-compass"></i>
+          </button>
+        </header>
+      </article>
     );
   }
   // Success

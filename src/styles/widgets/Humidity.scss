@@ -54,3 +54,10 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .Humidity {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}

@@ -20,3 +20,9 @@
     }
   }
 }
+@media screen and (max-width: 500px) {
+  .Pressure {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+}

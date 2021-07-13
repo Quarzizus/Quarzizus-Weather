@@ -37,3 +37,10 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .Wind {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
+}

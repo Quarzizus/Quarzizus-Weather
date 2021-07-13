@@ -102,3 +102,21 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .Card {
+    grid-template-rows: 60px 1fr 1fr 120px;
+    width: 100%;
+    grid-row: 1/2;
+    .Card_header {
+      .Header_type-search {
+        visibility: hidden;
+      }
+    }
+    .Card_main {
+      .Card_temperature {
+        font-size: 30px;
+      }
+    }
+  }
+}

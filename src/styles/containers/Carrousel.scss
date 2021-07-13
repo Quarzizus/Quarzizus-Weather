@@ -35,3 +35,21 @@
     gap: 25px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .Carrousel {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    width: 100%;
+    .Carrousel_header {
+      padding: 20px;
+      height: 10%;
+    }
+    .Carrousel_container {
+      height: 90%;
+      gap: 10px;
+      padding: 0 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

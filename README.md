@@ -1,8 +1,11 @@
-# Quarzizus-Weather
-Quarzizus-Weather
+# Sweet-Weather
+
+Sweet-Weather
 
 ### API
+
 https://openweathermap.org/
 
-### Page 
+### Page
+
 https://quarzizus-weather.web.app/

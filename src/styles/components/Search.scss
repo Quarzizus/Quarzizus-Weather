@@ -54,7 +54,7 @@
 
 .Active {
   left: 0;
-  width: 100%;
+  width: 400px;
   padding: 0 25px;
   height: 60px;
 
@@ -66,5 +66,11 @@
     .Search_button {
       width: 18%;
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Active {
+    width: 100%;
   }
 }

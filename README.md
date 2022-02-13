@@ -10,7 +10,7 @@ https://quarzizus-weather.web.app/
 
 ## Technologies
 
-- React
-- Sass
-- Webpack
-- [Openweathermap API](https://openweathermap.org/)
+- React.
+- Sass.
+- Webpack.
+- [Openweathermap API](https://openweathermap.org/).

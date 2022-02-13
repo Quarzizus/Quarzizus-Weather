@@ -12,7 +12,7 @@ const Search = ({ searchHandle }) => {
     e.key === "Enter" ? handleCity(cityValue) : null;
   };
   return (
-    <section className="Search">
+    <section className="Search Active">
       <button className="Search_close" onClick={searchHandle}>
         X
       </button>

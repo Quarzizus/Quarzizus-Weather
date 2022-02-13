@@ -5,6 +5,7 @@
   background-color: rgb(35, 35, 70);
   display: grid;
   grid-template-rows: 60px 1fr 1fr 120px;
+  position: relative;
   .Card_header {
     display: flex;
     grid-row: 1/2;

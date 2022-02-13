@@ -1,11 +1,16 @@
 # Sweet-Weather
 
-Sweet-Weather
+![](src/icons/Portada.webp)
 
-### API
+Sweet Weather is a Weather App built with React, deployed with Firebase. It uses the API: openweather.
 
-https://openweathermap.org/
-
-### Page
+## Page
 
 https://quarzizus-weather.web.app/
+
+## Technologies
+
+- React
+- Sass
+- Webpack
+- [Openweathermap API](https://openweathermap.org/)
